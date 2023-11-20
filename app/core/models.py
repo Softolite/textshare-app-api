@@ -44,6 +44,7 @@ class User(AbstractBaseUser, PermissionsMixin):
 
     USERNAME_FIELD = 'email'
 
+
 class Content(models.Model):
     """Text Content object."""
     user = models.ForeignKey(
