@@ -68,7 +68,8 @@ class Content(models.Model):
     def generate_unique_pin(self):
         while True:
             # Generate a random string of 6 characters (letters and digits)
-            pin = ''.join(random.choices(string.ascii_letters + string.digits, k=6))
+            pin = ''.join(random.choices(string.ascii_letters
+                                         + string.digits, k=6))
             if not Content.objects.filter(pin=pin).exists():
                 return pin
 
