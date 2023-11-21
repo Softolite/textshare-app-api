@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: textshare-api-deployment
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: textshare-api
+  template:
+    metadata:
+      labels:
+        app: textshare-api
+    spec:
+      containers:
+      - name: textshare-api-container
+        image: mgdockerid/textshare:d42ce20f0840be9eb7b831f64443f81de0b2a7a1
+        ports:
+        - containerPort: 8000

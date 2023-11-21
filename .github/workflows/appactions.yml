@@ -46,7 +46,7 @@ jobs:
       with:
         context: .
         push: true
-        tags: ${{ secrets.DOCKERHUB_USER }}/textshare_dev:${{ github.sha }}
+        tags: ${{ secrets.DOCKERHUB_USER }}/textshare:${{ github.sha }}
 
     #- name: Create Kubernetes manifests
     #  run: |
