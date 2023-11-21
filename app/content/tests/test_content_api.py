@@ -2,7 +2,7 @@
 Tests for Text Content APIs.
 """
 from decimal import Decimal
-
+import uuid
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
@@ -34,6 +34,7 @@ def create_content(user, **params):
         'price': Decimal('5.25'),
         'description': 'Sample description',
         'link': 'http://example.com/content.pdf',
+        # 'pin': 'asdf23',
     }
     defaults.update(params)
 
@@ -108,6 +109,7 @@ class PrivateContentApiTests(TestCase):
             'title': 'Sample content',
             'time_minutes': 30,
             'price': Decimal('5.99'),
+            # 'pin': 'asdf13',
         }
         res = self.client.post(CONTENTS_URL, payload)
 
@@ -151,6 +153,7 @@ class PrivateContentApiTests(TestCase):
             'description': 'New content description',
             'time_minutes': 10,
             'price': Decimal('2.50'),
+            'pin': uuid.uuid4().hex[:6],
         }
         url = detail_url(content.id)
         res = self.client.put(url, payload)

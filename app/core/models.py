@@ -1,6 +1,8 @@
 """
 Database models.
 """
+import random
+import string
 from django.conf import settings
 from django.db import models
 from django.contrib.auth.models import (
@@ -56,6 +58,19 @@ class Content(models.Model):
     time_minutes = models.IntegerField()
     price = models.DecimalField(max_digits=5, decimal_places=2)
     link = models.CharField(max_length=255, blank=True)
+    pin = models.CharField(max_length=10, unique=True, blank=True)
+
+    def save(self, *args, **kwargs):
+        if not self.pin:
+            self.pin = self.generate_unique_pin()
+        super(Content, self).save(*args, **kwargs)
+
+    def generate_unique_pin(self):
+        while True:
+            # Generate a random string of 6 characters (letters and digits)
+            pin = ''.join(random.choices(string.ascii_letters + string.digits, k=6))
+            if not Content.objects.filter(pin=pin).exists():
+                return pin
 
     def __str__(self):
         return self.title
