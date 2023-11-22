@@ -49,14 +49,14 @@ jobs:
         push: true
         tags: ${{ secrets.DOCKERHUB_USER }}/textshare:${{ github.sha }}
 
-    #- name: Create Kubernetes manifests
-    #  run: |
-    #    sed 's|DOCKER_IMAGE_TAG_PLACEHOLDER|mgdockerid/django_dev:${{ github.sha }}|' k8s_templates/deployment.yaml > k8s_manifests/deployment.yaml
-    #    git add k8s_manifests/deployment.yaml
+    - name: Create Kubernetes manifests
+      run: |
+        sed 's|DOCKER_IMAGE_TAG_PLACEHOLDER|mgdockerid/textshare:${{ github.sha }}|' k8s_templates/deployment.yaml > k8s_manifests/deployment.yaml
+        git add k8s_manifests/deployment.yaml
 
-    #- name: Commit Kubernetes manifests
-    #  run: |
-    #    git config --local user.email "action@github.com"
-    #    git config --local user.name "GitHub Action"
-    #    git commit -am "New Django app version is pushed"
-    #    git push
+    - name: Commit Kubernetes manifests
+      run: |
+        git config --local user.email "action@github.com"
+        git config --local user.name "GitHub Action"
+        git commit -am "New textshare app version is pushed to github"
+        git push
