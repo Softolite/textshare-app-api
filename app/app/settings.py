@@ -9,6 +9,7 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+from base64 import b64decode
 
 import os
 from pathlib import Path
@@ -85,8 +86,8 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': os.environ.get('DB_HOST'),
         'NAME': os.environ.get('DB_NAME'),
-        'USER': os.environ.get('DB_USER'),
-        'PASSWORD': os.environ.get('DB_PASS'),
+        'USER': b64decode(os.environ.get('DB_USER')).decode('utf-8'),
+        'PASSWORD': b64decode(os.environ.get('DB_PASS')).decode('utf-8'),
     }
 }
 
