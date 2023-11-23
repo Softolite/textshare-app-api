@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: textshare-api-container
-        image: mgdockerid/textshare:39997faee783023ccd0b891f6768b672a24e2b67
+        image: mgdockerid/textshare:eab08e2f47e053a3cfe467c2cc10658a9e054395
         ports:
         - containerPort: 8000
         env:
@@ -31,4 +31,4 @@ spec:
           - name: DB_NAME
             value: textsharedb  #TODO read it in a configmap later
           - name: DB_HOST
-            value: postgres-textshare-svc  # Replace with your PostgreSQL ClusterIP service name
+            value: postgres-textshare-svc  # PostgreSQL ClusterIP service name
