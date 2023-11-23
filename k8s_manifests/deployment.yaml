@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: textshare-api-deployment
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: textshare-api
@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: textshare-api-container
-        image: mgdockerid/textshare:eab08e2f47e053a3cfe467c2cc10658a9e054395
+        image: mgdockerid/textshare:1c51166d3f036a498a3d937ae3ff19075535bc31
         ports:
         - containerPort: 8000
         env:
