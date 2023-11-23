@@ -81,6 +81,14 @@ WSGI_APPLICATION = 'app.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
 
+db_user_encoded = os.environ.get('DB_USER')
+print(f'DB_USER encoded: {db_user_encoded}')
+try:
+    db_user_decoded = b64decode(db_user_encoded).decode('utf-8')
+    print(f'DB_USER decoded: {db_user_decoded}')
+except binascii.Error as e:
+    print(f'Error decoding DB_USER: {e}')
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
