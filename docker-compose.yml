@@ -17,8 +17,8 @@ services:
     environment:
       - DB_HOST=db
       - DB_NAME=textsharedb
-      - DB_USER="ZGV2dXNlcg=="   # devuser in base64
-      - DB_PASS="Y2hhbmdlbWU="   # changeme in base64
+      - DB_USER=devuser #"ZGV2dXNlcg=="   # devuser in base64
+      - DB_PASS=changeme #"Y2hhbmdlbWU="   # changeme in base64
     depends_on:
       - db
 
