@@ -34,6 +34,8 @@ spec:
         - name: postgres
           image: postgres:16.1
           env:
+            - name: POSTGRES_DB
+              value: textsharedb #TODO store it in a configmap later
             - name: POSTGRES_USER
               valueFrom:
                 secretKeyRef:

@@ -29,6 +29,6 @@ spec:
                 name: postgres-credentials  # The name of the Secret
                 key: POSTGRES_PASSWORD   # The key in the Secret for the password
           - name: DB_NAME
-            value: textsharedb  # Replace with your database name
+            value: textsharedb  #TODO read it in a configmap later
           - name: DB_HOST
-            value: postgres-textshare-svc  # Replace with your PostgreSQL ClusterIP service name
+            value: postgres-textshare-svc  # PostgreSQL ClusterIP service name
