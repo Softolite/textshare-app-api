@@ -95,8 +95,11 @@ DATABASES = {
         'ENGINE': 'django.db.backends.postgresql',
         'HOST': os.environ.get('DB_HOST'),
         'NAME': os.environ.get('DB_NAME'),
-        'USER': b64decode(os.environ.get('DB_USER')).decode('utf-8'),
-        'PASSWORD': b64decode(os.environ.get('DB_PASS')).decode('utf-8'),
+        'USER': os.environ.get('DB_USER'),
+        #'USER': b64decode(os.environ.get('DB_USER')).decode('utf-8'),
+        'PASSWORD': os.environ.get('DB_PASS'),
+        #'PASSWORD': b64decode(os.environ.get('DB_PASS')).decode('utf-8'),
+
     }
 }
 
