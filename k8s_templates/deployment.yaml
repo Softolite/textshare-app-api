@@ -17,3 +17,18 @@ spec:
         image: DOCKER_IMAGE_TAG_PLACEHOLDER
         ports:
         - containerPort: 8000
+        env:
+          - name: DB_USER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials  # The name of the Secret
+                key: POSTGRES_USER   # The key in the Secret for the username
+          - name: DB_PASS
+            valueFrom:
+              secretKeyRef:
+                name: postgres-credentials  # The name of the Secret
+                key: POSTGRES_PASSWORD   # The key in the Secret for the password
+          - name: DB_NAME
+            value: textsharedb  # Replace with your database name
+          - name: DB_HOST
+            value: postgres-textshare-svc  # Replace with your PostgreSQL ClusterIP service name
