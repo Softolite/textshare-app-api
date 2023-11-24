@@ -1,0 +1,14 @@
+apiVersion: traefik.containo.us/v1alpha1
+kind: IngressRoute
+metadata:
+  name: textshare-route
+  namespace: textshare
+spec:
+  entryPoints:
+    - web
+  routes:
+    - match: Host(`173.249.19.253`)
+      kind: Rule
+      services:
+        - name: textshare-api-svc
+          port: 80
