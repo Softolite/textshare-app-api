@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
       - name: textshare
-        image: mgdockerid/textshare:553effa6ddb84e919644e419e4126140b2c6ffa1
+        image: mgdockerid/textshare:47354de56a79604f3084ca133d73cd82da9b987e
         ports:
         - containerPort: 8000
         env:
