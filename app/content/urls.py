@@ -7,7 +7,6 @@ from django.urls import (
 )
 
 from rest_framework.routers import DefaultRouter
-
 from content import views
 
 

@@ -1,6 +1,7 @@
 """
 Database models.
 """
+from django.utils import timezone
 import random
 import string
 from django.conf import settings
@@ -54,9 +55,11 @@ class Content(models.Model):
         on_delete=models.CASCADE,
     )
     title = models.CharField(max_length=255)
+    # set current time and don't change it with updates
+    created_at = models.DateTimeField(default=timezone.now, editable=False)
+    # set current time and change it it with updates
+    updated_at = models.DateTimeField(auto_now=True)
     description = models.TextField(blank=True)
-    time_minutes = models.IntegerField()
-    price = models.DecimalField(max_digits=5, decimal_places=2)
     link = models.CharField(max_length=255, blank=True)
     pin = models.CharField(max_length=10, unique=True, blank=True)
 
