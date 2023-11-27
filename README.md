@@ -5,6 +5,10 @@ Python/Django backend server for the textshare.top app
 
 ## CICD Flow
 
+Here is an illustration of a full CICD flow for textshare.top backend app from developer commit to k8s deployment
+
+<img width="788" alt="Screenshot 2023-11-25 at 16 45 27" src="https://github.com/Softolite/textshare-app-api/assets/5890558/b64e1f56-2221-4314-97b1-a7c028e8172e">
+
 ## Developer guidelines
 
 run make migrations command:
@@ -22,4 +26,6 @@ run unit tests:
 > docker-compose run --rm app sh -c "flake8 && python manage.py test"
 
 run the app:
+
 > docker-compose up
+
