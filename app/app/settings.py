@@ -28,8 +28,21 @@ SECRET_KEY = 'django-insecure-bqi-pv4i0_tubk4mcct3xj#m+)^4n44m!o5%ig4%ev0boc5uv7
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '173.249.19.253', 'textshare.top', 'www.textshare.top']
+ALLOWED_HOSTS = [
+    'localhost',
+    '173.249.19.253',
+    'textshare.top',
+    'www.textshare.top',
+    'admin.textshare.top',
+    'www.admin.textshare.top',
+]
 
+# For production (list your frontend's origin)
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+    "http://textshare.top",
+    "https://textshare.top",
+]
 
 # Application definition
 
@@ -40,6 +53,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'rest_framework',
     'rest_framework.authtoken',
     'drf_spectacular',
@@ -56,6 +70,7 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
