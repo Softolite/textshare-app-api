@@ -5,10 +5,12 @@ metadata:
   namespace: textshare
 spec:
   entryPoints:
-    - web
+    - websecure
   routes:
     - match: Host(`admin.textshare.top`)
       kind: Rule
       services:
         - name: textshare-api-svc
           port: 80
+  tls:
+    certResolver: letsencrypt-prod
