@@ -7,12 +7,7 @@ spec:
   entryPoints:
     - web
   routes:
-    - match: Host(`173.249.19.253`)
-      kind: Rule
-      services:
-        - name: textshare-api-svc
-          port: 80
-    - match: Host(`textshare.top`)
+    - match: Host(`admin.textshare.top`)
       kind: Rule
       services:
         - name: textshare-api-svc
