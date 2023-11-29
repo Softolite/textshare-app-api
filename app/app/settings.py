@@ -41,7 +41,9 @@ ALLOWED_HOSTS = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
     "http://textshare.top",
+    "http://www.textshare.top",
     "https://textshare.top",
+    "https://www.textshare.top",
 ]
 
 # Application definition
