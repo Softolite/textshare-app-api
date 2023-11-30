@@ -18,6 +18,16 @@ spec:
         ports:
         - containerPort: 8000
         env:
+          - name: SECRET_KEY  # Django secret key
+            valueFrom:
+              secretKeyRef:
+                name: django-sec-key
+                key: SECRET_KEY
+          - name: SECRET_KEY_FALLBACKS  # Django fallback secret key
+            valueFrom:
+              secretKeyRef:
+                name: django-sec-key
+                key: SECRET_KEY_FALLBACKS
           - name: DB_USER
             valueFrom:
               secretKeyRef:
