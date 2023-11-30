@@ -3,7 +3,8 @@
 Welcome to the documentation for our Django app and its APIs. 
 This repository contains the source code and documentation for a demo web application built with Django.
 
-Feel free to check the demo site at [www.textshare.top](https://www.textshare.top) 
+Feel free to check the demo site at [www.textshare.top](https://www.textshare.top), 
+and try out the pre-shared text message: [GqSvoT](https://textshare.top/c/GqSvoT/)
 
 ## Table of Contents
 
@@ -12,7 +13,7 @@ Feel free to check the demo site at [www.textshare.top](https://www.textshare.to
 - [CICD Flow](#CICD-Flow)
 - [Developer Guidelines](#developer-guidelines)
 - [Authentication](#authentication)
-
+- [API Endpoints](#api-endpoints)
 
 ## Overview
 TextShare app is a text-contents sharing platform. Users can save text paragraph and share it with others.
