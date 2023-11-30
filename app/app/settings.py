@@ -23,30 +23,40 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
 SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY_FALLBACKS = [
+    os.environ.get('SECRET_KEY_FALLBACKS'),
+]
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
+
+DEFAULT_FROM_EMAIL = "info@softolite.io"
+
+ADMINS = [
+    ("Geis", "info@softolite.io")
+]
 
 ALLOWED_HOSTS = [
     'localhost',
-    '173.249.19.253',
     'textshare.top',
     'www.textshare.top',
     'admin.textshare.top',
     'www.admin.textshare.top',
 ]
 
-# For production (list your frontend's origin)
+# For production (list of frontend's origin)
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:3000",
+    "http://127.0.0.1:3000",
     "http://textshare.top",
     "http://www.textshare.top",
     "https://textshare.top",
     "https://www.textshare.top",
+    "https://admin.textshare.top",
+    "https://www.admin.textshare.top",
 ]
 
 # Application definition
-
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -97,14 +107,6 @@ WSGI_APPLICATION = 'app.wsgi.application'
 
 # Database
 # https://docs.djangoproject.com/en/3.2/ref/settings/#databases
-
-db_user_encoded = os.environ.get('DB_USER')
-print(f'DB_USER encoded: {db_user_encoded}')
-try:
-    db_user_decoded = b64decode(db_user_encoded).decode('utf-8')
-    print(f'DB_USER decoded: {db_user_decoded}')
-except binascii.Error as e:
-    print(f'Error decoding DB_USER: {e}')
 
 DATABASES = {
     'default': {
