@@ -14,10 +14,20 @@ spec:
     spec:
       containers:
       - name: textshare
-        image: mgdockerid/textshare:7a3b61c082b27e5cdf852a08f7f16d5b00916622
+        image: mgdockerid/textshare:fff918611148bb7571a89d622c1f7db902a110a1
         ports:
         - containerPort: 8000
         env:
+          - name: SECRET_KEY  # Django secret key
+            valueFrom:
+              secretKeyRef:
+                name: django-sec-key
+                key: SECRET_KEY
+          - name: SECRET_KEY_FALLBACKS  # Django fallback secret key
+            valueFrom:
+              secretKeyRef:
+                name: django-sec-key
+                key: SECRET_KEY_FALLBACKS
           - name: DB_USER
             valueFrom:
               secretKeyRef:
