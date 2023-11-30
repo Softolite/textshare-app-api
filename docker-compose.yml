@@ -19,6 +19,7 @@ services:
       - DB_NAME=textsharedb
       - DB_USER=devuser #"ZGV2dXNlcg=="   # devuser in base64
       - DB_PASS=changeme #"Y2hhbmdlbWU="   # changeme in base64
+      - SECRET_KEY='django-insecure-bqi-pv4i0_tubk4mcct3xj#m+)^4n44m!o5%ig4%ev0boc5cv7'
     depends_on:
       - db
 
