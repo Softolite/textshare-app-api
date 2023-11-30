@@ -14,15 +14,10 @@ spec:
     spec:
       containers:
       - name: textshare
-        image: mgdockerid/textshare:49fa232790095c307dcb64ef1d184859d5195800
+        image: mgdockerid/textshare:ed806a695239109400d9623b1f976ac687fd4b82
         ports:
         - containerPort: 8000
         env:
-          - name: SECRET_KEY  # Django secret key
-            valueFrom:
-              secretKeyRef:
-                name: django-sec-key
-                key: SECRET_KEY
           - name: DB_USER
             valueFrom:
               secretKeyRef:
