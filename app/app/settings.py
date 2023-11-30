@@ -36,12 +36,18 @@ ADMINS = [
     ("Geis", "info@softolite.io")
 ]
 
+CORS_ALLOW_CREDENTIALS = True
+
 ALLOWED_HOSTS = [
     'localhost',
     'textshare.top',
     'www.textshare.top',
     'admin.textshare.top',
     'www.admin.textshare.top',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    "https://*.textshare.top",
 ]
 
 # For production (list of frontend's origin)
@@ -76,12 +82,12 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'corsheaders.middleware.CorsMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
