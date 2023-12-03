@@ -25,7 +25,12 @@ The App demos how to:
 
 ## Structure
 
-TextShare Django application follows a well-organized project structure to maintain clarity and scalability. 
+TextShare Django application follows a well-organized project structure to maintain clarity and scalability.
+
+![image](https://github.com/Softolite/textshare-app-api/assets/5890558/85d4456a-c47a-4808-87d7-ec3ddc1147e2)
+
+Users can interact with the TextShare API by making HTTPS requests to the [API Endpoints](#api-endpoints). To get started, users can register for an account via the `/api/user/create/` endpoint and obtain an authentication token. Users include this authentication token in the Authorization header of their requests to authenticate and gain access to the API's features. Then they can securely access protected resources, such as creating, updating, and deleting text content via API endpoints like `/api/content/contents/`.  The API responds with JSON data, enabling users to seamlessly integrate TextShare's text-sharing functionality into their applications, websites, or scripts. TextShare users and contents data is stored in Postgres DB. Both the API server and Postgres DB are deployed in the same namespace in the Kubernetes cluster.
+
 Below is an overview of the key directories and their purposes:
 
 - **`app/`**: This is the top projects directory for our Django application. 
